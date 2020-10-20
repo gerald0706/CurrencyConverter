@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-class Exam
+class Examconverter
 {
 	private JFrame frame;
 	private JPanel mainPanel;
@@ -16,11 +16,10 @@ class Exam
 	private ConvertListener convertListener;
 	
 	
-public Exam()
+public Examconverter()
 {
 	frame = new JFrame();
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	frame.setBounds(100,100,250,360);
 	frame.setTitle("CONVERTER");
 	frame.setResizable(false);
 	
@@ -28,36 +27,34 @@ public Exam()
 		
 		
 	rate = new JLabel("Current Rate:");
-	rate.setBounds(12,13,100,16);
+	
 	
 	
 	
 	convertListener = new ConvertListener();
-	Txt1 = new JTextField();
-	Txt1.setBounds(10,35,215,32);
-	Txt1.addActionListener(convertListener);
 	
+	Txt1 = new JTextField();
 	
 	
 	
 	amount = new JLabel("Amount to Convert:");
-	amount.setBounds(12,72,150,16);
 	
-	
-	
+
 	MainTxt = new JTextField();
-	MainTxt.setBounds(10,95,215,32);
-	MainTxt.addActionListener(convertListener);
+	
 	
 	
 	Result = new JLabel("Result:");
-	Result.setBounds(12,127,150,16);
 	
-	
-	
+
 	Output = new JTextField();
-	Output.setBounds(10,148,215,32);
 	Output.setEditable(false);
+	
+
+
+	// convertListener
+	Txt1.addActionListener(convertListener);
+	MainTxt.addActionListener(convertListener);
 	Output.addActionListener(convertListener);
 	
 	
@@ -69,6 +66,15 @@ public Exam()
 	frame.getContentPane().add(MainTxt);
 	frame.getContentPane().add(Result);
 	frame.getContentPane().add(Output);
+	
+	// setBounds
+	frame.setBounds(100,100,250,360);
+	rate.setBounds(12,13,100,16);
+	Txt1.setBounds(10,35,215,32);
+	amount.setBounds(12,72,150,16);
+	MainTxt.setBounds(10,95,215,32);
+	Result.setBounds(12,127,150,16);
+	Output.setBounds(10,148,215,32);
 	
 	
 	
@@ -107,7 +113,7 @@ public Exam()
     }
 	
 	public static void main(String[] args) {
-		Exam e = new Exam();
+		Examconverter e = new Examconverter();
 		e.show();
 	}
 
